@@ -1,0 +1,6 @@
+Sep 21 10:01:10 server sshd: Failed password for admin from 192.168.1.50
+Sep 21 10:01:20 server sshd: Failed password for admin from 192.168.1.50
+Sep 21 10:01:30 server sshd: Failed password for root from 192.168.1.50
+Sep 21 10:01:40 server sshd: Failed password for admin from 192.168.1.50
+Sep 21 10:01:50 server sshd: Accepted password for arun from 192.168.1.10
+Sep 21 10:02:00 server sshd: Failed password for root from 10.0.0.25
