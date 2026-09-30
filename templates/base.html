@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}SOC Monitor{% endblock %}</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">🛡</div>
+
+            <div>
+                <h2>SOC<span>Monitor</span></h2>
+                <p>Security Operations</p>
+            </div>
+        </div>
+
+        <div class="menu-label">WORKSPACE</div>
+
+        <nav class="navigation">
+
+            <a href="/" class="nav-link active">
+                <span>▦</span> Dashboard
+            </a>
+
+            <a href="/alerts" class="nav-link">
+                <span>⚠</span> Security Alerts
+            </a>
+
+            <a href="/events" class="nav-link">
+                <span>▤</span> Event Logs
+            </a>
+
+            <a href="/analytics" class="nav-link">
+                <span>▥</span> Analytics
+            </a>
+
+            <a href="/reports" class="nav-link">
+                <span>▧</span> Reports
+            </a>
+
+            <a href="/settings" class="nav-link">
+                <span>⚙</span> Settings
+            </a>
+
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="status-dot"></div>
+            System Monitoring Active
+        </div>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div class="page-heading">
+                <h1>{% block heading %}Security Dashboard{% endblock %}</h1>
+                <p>Monitor, detect and investigate security events.</p>
+            </div>
+
+            <div class="user-profile">
+                <span class="live-badge">● LIVE</span>
+                <span id="clock">--:--:--</span>
+                <div class="avatar">SA</div>
+
+                <div class="user-info">
+                    <strong>SOC Analyst</strong>
+                    <small>Security Team</small>
+                </div>
+            </div>
+
+        </header>
+
+        <section class="page-content">
+            {% block content %}{% endblock %}
+        </section>
+
+    </main>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+</body>
+</html>

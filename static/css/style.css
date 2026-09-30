@@ -1,0 +1,466 @@
+
+/* =================================
+   SOC MONITOR - GLOBAL STYLES
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b1020;
+    color: #e2e8f0;
+}
+
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* =================================
+   SIDEBAR
+================================= */
+
+.sidebar {
+    width: 250px;
+    background: #111a2d;
+    border-right: 1px solid #26344d;
+    padding: 25px 15px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 45px;
+    padding: 0 8px;
+}
+
+.brand-icon {
+    background: #173957;
+    padding: 13px;
+    border-radius: 12px;
+    font-size: 22px;
+}
+
+.brand h2 {
+    font-size: 19px;
+    margin-bottom: 5px;
+}
+
+.brand h2 span {
+    color: #38bdf8;
+}
+
+.brand p {
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+.menu-label {
+    font-size: 11px;
+    color: #64748b;
+    letter-spacing: 2px;
+    margin: 15px 8px;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-link {
+    display: block;
+    padding: 14px 12px;
+    border-radius: 8px;
+    color: #a8b8d0;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.nav-link span {
+    margin-right: 10px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: #1b3554;
+    color: #38bdf8;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding: 15px 8px;
+    font-size: 12px;
+    color: #4ade80;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4ade80;
+}
+
+/* =================================
+   MAIN CONTENT
+================================= */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 30px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.page-heading h1 {
+    font-size: 27px;
+    margin-bottom: 8px;
+}
+
+.page-heading p {
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 13px;
+}
+
+.live-badge {
+    background: #123b34;
+    color: #4ade80;
+    padding: 9px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+}
+
+#clock {
+    color: #94a3b8;
+    font-variant-numeric: tabular-nums;
+}
+
+.avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #16466b;
+    color: #7dd3fc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.user-info strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.user-info small {
+    color: #94a3b8;
+}
+
+/* =================================
+   SECTION HEADINGS
+================================= */
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin: 28px 0 18px;
+}
+
+.section-heading h2 {
+    font-size: 17px;
+    margin-bottom: 6px;
+}
+
+.section-heading p {
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+.refresh-btn {
+    background: #1c2b43;
+    color: #e2e8f0;
+    border: 1px solid #334155;
+    border-radius: 7px;
+    padding: 11px 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.refresh-btn:hover {
+    background: #28415f;
+}
+
+/* =================================
+   OVERVIEW CARDS
+================================= */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.stat-card {
+    background: #151f32;
+    border: 1px solid #293951;
+    border-radius: 12px;
+    padding: 22px;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    border-color: #38bdf8;
+}
+
+.stat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #a8b8d0;
+    font-size: 13px;
+}
+
+.stat-icon {
+    padding: 12px;
+    border-radius: 9px;
+    font-size: 17px;
+}
+
+.stat-icon.blue {
+    background: #173957;
+}
+
+.stat-icon.red {
+    background: #49243b;
+}
+
+.stat-icon.orange {
+    background: #49351f;
+}
+
+.stat-icon.green {
+    background: #124437;
+}
+
+.stat-card h3 {
+    font-size: 29px;
+    margin: 17px 0 12px;
+}
+
+.stat-card p {
+    font-size: 11px;
+    color: #8295b2;
+}
+
+.status-normal {
+    color: #4ade80;
+}
+
+/* =================================
+   SYSTEM INFORMATION
+================================= */
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.info-card {
+    background: #151f32;
+    border: 1px solid #293951;
+    border-radius: 10px;
+    padding: 20px;
+    min-width: 0;
+}
+
+.info-label {
+    display: block;
+    font-size: 12px;
+    color: #94a3b8;
+    margin-bottom: 12px;
+}
+
+.info-card h3 {
+    font-size: 16px;
+    color: #38bdf8;
+    overflow-wrap: anywhere;
+}
+
+/* =================================
+   NETWORK TABLE
+================================= */
+
+.table-container {
+    overflow-x: auto;
+    background: #151f32;
+    border: 1px solid #293951;
+    border-radius: 12px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 450px;
+}
+
+th {
+    background: #1c2b43;
+    color: #94a3b8;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 16px;
+}
+
+td {
+    padding: 16px;
+    border-top: 1px solid #293951;
+    font-size: 13px;
+}
+
+tr:hover td {
+    background: #1b2b42;
+}
+
+.port-status {
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.port-open {
+    background: #123b34;
+    color: #4ade80;
+}
+
+.port-closed {
+    background: #49243b;
+    color: #f87171;
+}
+
+/* =================================
+   ALERT PANEL
+================================= */
+
+.alert-panel {
+    padding: 22px;
+    border-radius: 10px;
+    border: 1px solid;
+}
+
+.alert-panel h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.alert-panel p {
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.alert-success {
+    background: #102d2a;
+    border-color: #226451;
+    color: #4ade80;
+}
+
+.alert-danger {
+    background: #381b2a;
+    border-color: #8b354d;
+    color: #fda4af;
+}
+
+/* =================================
+   RESPONSIVE DESIGN
+================================= */
+
+@media (max-width: 1100px) {
+    .stats-grid,
+    .info-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 750px) {
+    .app-layout {
+        display: block;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .brand {
+        margin-bottom: 20px;
+    }
+
+    .navigation {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+
+    .nav-link {
+        white-space: nowrap;
+    }
+
+    .sidebar-footer {
+        display: none;
+    }
+
+    .main-content {
+        padding: 20px 15px;
+    }
+
+    .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .user-profile {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 450px) {
+    .stats-grid,
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-heading h1 {
+        font-size: 23px;
+    }
+}

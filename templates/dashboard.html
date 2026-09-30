@@ -1,0 +1,170 @@
+
+{% extends "base.html" %}
+
+{% block title %}SOC Dashboard{% endblock %}
+
+{% block heading %}Security Dashboard{% endblock %}
+
+{% block content %}
+
+<!-- Overview Heading -->
+<div class="section-heading">
+    <div>
+        <h2>Security Overview</h2>
+        <p>Summary of monitored security activity</p>
+    </div>
+
+    <button class="refresh-btn" onclick="location.reload()">
+        ↻ Refresh
+    </button>
+</div>
+
+<!-- Overview Cards -->
+<div class="stats-grid">
+
+    <div class="stat-card">
+        <div class="stat-header">
+            <span>Total Events</span>
+            <span class="stat-icon blue">▤</span>
+        </div>
+
+        <h3>{{ total_events }}</h3>
+        <p>Monitored security events</p>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-header">
+            <span>Critical Alerts</span>
+            <span class="stat-icon red">⚠</span>
+        </div>
+
+        <h3>{{ critical }}</h3>
+        <p>Alerts requiring investigation</p>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-header">
+            <span>Failed Logins</span>
+            <span class="stat-icon orange">🔒</span>
+        </div>
+
+        <h3>{{ failed_count }}</h3>
+        <p>Authentication failures</p>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-header">
+            <span>System Status</span>
+            <span class="stat-icon green">✓</span>
+        </div>
+
+        <h3 class="status-normal">ONLINE</h3>
+        <p>Monitoring service status</p>
+    </div>
+
+</div>
+
+<!-- System Information -->
+<div class="section-heading">
+    <div>
+        <h2>System Information</h2>
+        <p>Current host details</p>
+    </div>
+</div>
+
+<div class="info-grid">
+
+    <div class="info-card">
+        <span class="info-label">Hostname</span>
+        <h3>{{ hostname }}</h3>
+    </div>
+
+    <div class="info-card">
+        <span class="info-label">IP Address</span>
+        <h3>{{ ip }}</h3>
+    </div>
+
+    <div class="info-card">
+        <span class="info-label">Operating System</span>
+        <h3>{{ os_name }}</h3>
+    </div>
+
+    <div class="info-card">
+        <span class="info-label">DNS Resolution</span>
+        <h3>{{ dns }}</h3>
+    </div>
+
+</div>
+
+<!-- Network Monitoring -->
+<div class="section-heading">
+    <div>
+        <h2>Network Port Monitoring</h2>
+        <p>Local TCP port status</p>
+    </div>
+</div>
+
+<div class="table-container">
+
+    <table>
+        <thead>
+            <tr>
+                <th>Port</th>
+                <th>Service</th>
+                <th>Status</th>
+                <th>Target</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for port, status in ports.items() %}
+            <tr>
+                <td>{{ port }}</td>
+
+                <td>
+                    {% if port == 22 %}
+                        SSH
+                    {% elif port == 53 %}
+                        DNS
+                    {% elif port == 80 %}
+                        HTTP
+                    {% elif port == 443 %}
+                        HTTPS
+                    {% endif %}
+                </td>
+
+                <td>
+                    <span class="port-status {{ 'port-open' if status == 'OPEN' else 'port-closed' }}">
+                        {{ status }}
+                    </span>
+                </td>
+
+                <td>127.0.0.1</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+<!-- Alert Status -->
+<div class="section-heading">
+    <div>
+        <h2>Security Status</h2>
+        <p>Authentication log analysis</p>
+    </div>
+</div>
+
+<div class="alert-panel {{ 'alert-danger' if critical else 'alert-success' }}">
+
+    {% if critical %}
+        <h3>⚠ Security Alert Detected</h3>
+        <p>High-volume failed login activity requires investigation.</p>
+    {% else %}
+        <h3>✓ No High-Volume Login Alert</h3>
+        <p>No threshold-based alert detected in the available project log.</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}

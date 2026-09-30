@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Security Alerts | SOC Monitor{% endblock %}
+
+{% block heading %}Security Alerts{% endblock %}
+
+{% block content %}
+
+<div class="page-content">
+
+    <div class="card">
+        <h2>Authentication Alerts</h2>
+
+        <p>
+            Failed login attempts detected from the project
+            authentication log.
+        </p>
+
+        <h3>Total Failed Attempts: {{ failed_count }}</h3>
+    </div>
+
+    <div class="card">
+        <h2>Alert Details</h2>
+
+        {% if alerts %}
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Event Type</th>
+                    <th>Severity</th>
+                    <th>Log Details</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for alert in alerts %}
+                <tr>
+                    <td>Failed Login</td>
+                    <td>
+                        <span class="port-status port-closed">
+                            Review
+                        </span>
+                    </td>
+                    <td>{{ alert }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        {% else %}
+
+        <p>No failed login records found in the project log.</p>
+
+        {% endif %}
+    </div>
+
+</div>
+
+{% endblock %}
